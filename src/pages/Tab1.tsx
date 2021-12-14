@@ -1,25 +1,56 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import './Tab1.css';
+import { IonButton, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonPage, IonRow, IonTitle, IonToolbar } from "@ionic/react"
+import { useRef } from "react";
 
-const Tab1: React.FC = () => {
+const Tab1 : React.FC = () => {
+  const weightInputRef = useRef<HTMLIonInputElement>(null);
+  const heightInputRef = useRef<HTMLIonInputElement>(null);
+  
+
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Tab 1</IonTitle>
+          <IonTitle>비만도 계산기</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Tab 1</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer name="Tab 1 page" />
+
+
+      <IonContent className="ion-padding">
+        <IonGrid>
+          <IonRow>
+            <IonCol>
+              <IonItem>
+                <IonLabel position="floating">Your Height</IonLabel>
+                <IonInput ref={heightInputRef}></IonInput>
+              </IonItem>
+              <IonItem>
+                <IonLabel position="floating">Your Weight</IonLabel>
+                <IonInput ref={weightInputRef}></IonInput>
+              </IonItem>
+            </IonCol>
+          </IonRow>
+
+          <IonRow>
+            <IonCol>
+              <IonButton>
+                <IonIcon name="calculator-outline"/>
+                계산하기
+              </IonButton>
+
+              <IonButton>
+                <IonIcon slot="start" name="refresh-outline"/>
+                리셋
+              </IonButton>
+            </IonCol>
+          </IonRow>
+
+          <IonRow>
+            <IonCol></IonCol>
+          </IonRow>
+        </IonGrid>
       </IonContent>
     </IonPage>
-  );
-};
+  )
+}
 
-export default Tab1;
+export default Tab1
