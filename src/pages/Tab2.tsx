@@ -15,12 +15,10 @@ import {
   IonImg,
   IonActionSheet,
 } from '@ionic/react';
-import { usePhotoGallery } from '../hooks/usePhotoGallery';
 import { useState } from 'react';
 
 
 const Tab2: React.FC = () => {
-  const { photos,takePhoto } = usePhotoGallery();
 
   return (
     <IonPage>
@@ -31,13 +29,7 @@ const Tab2: React.FC = () => {
       </IonHeader>
       <IonContent fullscreen>
         <IonGrid>
-          <IonRow>
-            {photos.map((photo, index) => (
-              <IonCol size='6' key={index}>
-                <IonImg src={photo.webViewPath}/>
-              </IonCol>
-            ))}
-          </IonRow>
+        
         </IonGrid>
 
 
